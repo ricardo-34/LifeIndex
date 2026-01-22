@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LifeIndex</title>
-    <meta name="description" content="Compara el costo de vida entre ciudades del mundo. Personaliza categorías y convierte a tu moneda.">
+    <meta name="description"
+        content="Compara el costo de vida entre ciudades del mundo. Personaliza categorías y convierte a tu moneda.">
     <link rel="icon" href="logo2.png" type="image/png">
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8290245173258073"
+        crossorigin="anonymous"></script>
     <!-- Fuentes modernas y legibles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
             /* Color System - Profesional y moderno */
@@ -22,7 +27,7 @@
             --accent: #F59E0B;
             --danger: #EF4444;
             --warning: #F59E0B;
-            
+
             /* Neutrals - Sistema de grises */
             --gray-50: #F9FAFB;
             --gray-100: #F3F4F6;
@@ -34,28 +39,28 @@
             --gray-700: #374151;
             --gray-800: #1F2937;
             --gray-900: #111827;
-            
+
             /* Backgrounds */
             --bg-page: #F9FAFB;
             --bg-card: #FFFFFF;
             --bg-hover: #F3F4F6;
             --bg-active: #EEF2FF;
-            
+
             /* Borders */
             --border-color: #E5E7EB;
             --border-hover: #D1D5DB;
-            
+
             /* Shadows */
             --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            
+
             /* Typography */
             --font-display: 'Outfit', sans-serif;
             --font-body: 'Inter', sans-serif;
-            
+
             /* Spacing System */
             --space-1: 0.25rem;
             --space-2: 0.5rem;
@@ -66,7 +71,7 @@
             --space-8: 2rem;
             --space-10: 2.5rem;
             --space-12: 3rem;
-            
+
             /* Radius */
             --radius-sm: 0.375rem;
             --radius-md: 0.5rem;
@@ -74,13 +79,13 @@
             --radius-xl: 1rem;
             --radius-full: 9999px;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: var(--font-body);
             background: var(--bg-page);
@@ -89,7 +94,7 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        
+
         /* Header Compacto */
         .header {
             background: var(--bg-card);
@@ -99,7 +104,7 @@
             z-index: 100;
             box-shadow: var(--shadow-sm);
         }
-        
+
         .header-container {
             max-width: 1280px;
             margin: 0 auto;
@@ -108,34 +113,34 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
             gap: var(--space-3);
         }
-        
+
         .logo-icon {
             font-size: 1.75rem;
         }
-        
+
         .logo-text h1 {
             font-family: var(--font-display);
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--gray-900);
         }
-        
+
         .logo-text .tagline {
             font-size: 0.75rem;
             color: var(--gray-500);
         }
-        
+
         /* Currency Selector Compacto */
         .currency-selector {
             position: relative;
         }
-        
+
         .currency-btn {
             display: flex;
             align-items: center;
@@ -151,12 +156,12 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        
+
         .currency-btn:hover {
             border-color: var(--primary);
             box-shadow: var(--shadow-sm);
         }
-        
+
         .currency-dropdown {
             position: absolute;
             top: calc(100% + var(--space-2));
@@ -171,11 +176,11 @@
             display: none;
             z-index: 1000;
         }
-        
+
         .currency-dropdown.active {
             display: block;
         }
-        
+
         .currency-option {
             display: flex;
             align-items: center;
@@ -184,23 +189,23 @@
             cursor: pointer;
             transition: background 0.15s;
         }
-        
+
         .currency-option:hover {
             background: var(--bg-hover);
         }
-        
+
         .currency-option.selected {
             background: var(--bg-active);
             color: var(--primary);
         }
-        
+
         /* Main Container */
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: var(--space-6) var(--space-4);
         }
-        
+
         /* Tab System */
         .tabs {
             display: flex;
@@ -210,7 +215,7 @@
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
-        
+
         .tab {
             padding: var(--space-3) var(--space-5);
             border: none;
@@ -225,30 +230,37 @@
             transition: all 0.2s;
             white-space: nowrap;
         }
-        
+
         .tab:hover {
             color: var(--gray-900);
         }
-        
+
         .tab.active {
             color: var(--primary);
             border-bottom-color: var(--primary);
         }
-        
+
         .tab-content {
             display: none;
         }
-        
+
         .tab-content.active {
             display: block;
             animation: fadeIn 0.3s;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         /* Compact Grid Layout */
         .compact-grid {
             display: grid;
@@ -256,7 +268,7 @@
             gap: var(--space-4);
             margin-bottom: var(--space-6);
         }
-        
+
         /* Card System */
         .card {
             background: var(--bg-card);
@@ -265,7 +277,7 @@
             padding: var(--space-5);
             box-shadow: var(--shadow-xs);
         }
-        
+
         .card-title {
             font-family: var(--font-display);
             font-size: 0.9375rem;
@@ -276,7 +288,7 @@
             align-items: center;
             gap: var(--space-2);
         }
-        
+
         /* Form Elements Compactos */
         select,
         input[type="number"] {
@@ -290,14 +302,14 @@
             color: var(--gray-900);
             transition: all 0.2s;
         }
-        
+
         select:focus,
         input[type="number"]:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
-        
+
         select {
             cursor: pointer;
             appearance: none;
@@ -306,12 +318,12 @@
             background-position: right var(--space-3) center;
             padding-right: var(--space-8);
         }
-        
+
         /* Budget Input Special */
         .budget-input-wrapper {
             position: relative;
         }
-        
+
         .budget-input-wrapper::before {
             content: attr(data-symbol);
             position: absolute;
@@ -322,11 +334,11 @@
             font-weight: 600;
             pointer-events: none;
         }
-        
+
         .budget-input-wrapper input {
             padding-left: var(--space-8);
         }
-        
+
         /* Accordion System for Categories */
         .accordion {
             border: 1px solid var(--border-color);
@@ -334,7 +346,7 @@
             overflow: hidden;
             margin-bottom: var(--space-4);
         }
-        
+
         .accordion-header {
             display: flex;
             justify-content: space-between;
@@ -345,16 +357,16 @@
             transition: background 0.2s;
             border-bottom: 1px solid transparent;
         }
-        
+
         .accordion-header:hover {
             background: var(--bg-hover);
         }
-        
+
         .accordion-header.active {
             background: var(--bg-active);
             border-bottom-color: var(--border-color);
         }
-        
+
         .accordion-title {
             display: flex;
             align-items: center;
@@ -362,87 +374,87 @@
             font-weight: 600;
             color: var(--gray-900);
         }
-        
+
         .accordion-icon {
             font-size: 1.25rem;
         }
-        
+
         .accordion-meta {
             display: flex;
             align-items: center;
             gap: var(--space-4);
             font-size: 0.875rem;
         }
-        
+
         .accordion-amount {
             font-family: var(--font-display);
             font-weight: 700;
             color: var(--gray-900);
         }
-        
+
         .accordion-change {
             padding: var(--space-1) var(--space-2);
             border-radius: var(--radius-sm);
             font-weight: 600;
             font-size: 0.8125rem;
         }
-        
+
         .accordion-change.positive {
             background: rgba(239, 68, 68, 0.1);
             color: var(--danger);
         }
-        
+
         .accordion-change.negative {
             background: rgba(16, 185, 129, 0.1);
             color: var(--secondary);
         }
-        
+
         .accordion-change.neutral {
             background: var(--gray-100);
             color: var(--gray-600);
         }
-        
+
         .accordion-arrow {
             transition: transform 0.2s;
         }
-        
+
         .accordion-header.active .accordion-arrow {
             transform: rotate(180deg);
         }
-        
+
         .accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
         }
-        
+
         .accordion-content.active {
             max-height: 300px;
         }
-        
+
         .accordion-body {
             padding: var(--space-4);
             background: var(--bg-hover);
         }
-        
+
         .comparison-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: var(--space-2) 0;
         }
-        
+
         .comparison-label {
             font-size: 0.875rem;
             color: var(--gray-600);
         }
-        
+
         .comparison-value {
             font-family: var(--font-display);
             font-weight: 600;
             color: var(--gray-900);
         }
-        
+
         /* Summary Card Compacta */
         .summary-card {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
@@ -451,26 +463,26 @@
             color: white;
             margin-bottom: var(--space-6);
         }
-        
+
         .summary-title {
             font-size: 0.875rem;
             opacity: 0.9;
             margin-bottom: var(--space-2);
         }
-        
+
         .summary-amount {
             font-family: var(--font-display);
             font-size: 2rem;
             font-weight: 800;
             margin-bottom: var(--space-1);
         }
-        
+
         .summary-subtitle {
             font-size: 0.875rem;
             opacity: 0.85;
             margin-bottom: var(--space-4);
         }
-        
+
         .summary-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -478,29 +490,29 @@
             padding-top: var(--space-4);
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .stat {
             text-align: center;
         }
-        
+
         .stat-value {
             font-family: var(--font-display);
             font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: var(--space-1);
         }
-        
+
         .stat-label {
             font-size: 0.75rem;
             opacity: 0.85;
         }
-        
+
         /* Category Management */
         .category-list {
             display: grid;
             gap: var(--space-3);
         }
-        
+
         .category-item-manage {
             display: flex;
             justify-content: space-between;
@@ -510,14 +522,14 @@
             border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
         }
-        
+
         .category-info {
             display: flex;
             align-items: center;
             gap: var(--space-3);
             flex: 1;
         }
-        
+
         .category-icon-large {
             width: 40px;
             height: 40px;
@@ -528,27 +540,27 @@
             justify-content: center;
             font-size: 1.25rem;
         }
-        
+
         .category-details {
             flex: 1;
         }
-        
+
         .category-name {
             font-weight: 600;
             color: var(--gray-900);
             margin-bottom: var(--space-1);
         }
-        
+
         .category-weight {
             font-size: 0.8125rem;
             color: var(--gray-500);
         }
-        
+
         .category-actions {
             display: flex;
             gap: var(--space-2);
         }
-        
+
         /* Buttons */
         .btn {
             display: inline-flex;
@@ -565,45 +577,45 @@
             transition: all 0.2s;
             white-space: nowrap;
         }
-        
+
         .btn-primary {
             background: var(--primary);
             color: white;
         }
-        
+
         .btn-primary:hover {
             background: var(--primary-dark);
             transform: translateY(-1px);
             box-shadow: var(--shadow-md);
         }
-        
+
         .btn-secondary {
             background: var(--gray-100);
             color: var(--gray-700);
         }
-        
+
         .btn-secondary:hover {
             background: var(--gray-200);
         }
-        
+
         .btn-danger {
             background: rgba(239, 68, 68, 0.1);
             color: var(--danger);
         }
-        
+
         .btn-danger:hover {
             background: rgba(239, 68, 68, 0.2);
         }
-        
+
         .btn-sm {
             padding: var(--space-2) var(--space-3);
             font-size: 0.8125rem;
         }
-        
+
         .btn-block {
             width: 100%;
         }
-        
+
         /* Modal System */
         .modal-overlay {
             position: fixed;
@@ -619,11 +631,11 @@
             z-index: 1000;
             padding: var(--space-4);
         }
-        
+
         .modal-overlay.active {
             display: flex;
         }
-        
+
         .modal {
             background: var(--bg-card);
             border-radius: var(--radius-xl);
@@ -634,18 +646,19 @@
             box-shadow: var(--shadow-xl);
             animation: modalSlide 0.3s;
         }
-        
+
         @keyframes modalSlide {
             from {
                 opacity: 0;
                 transform: translateY(-20px) scale(0.95);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
             }
         }
-        
+
         .modal-header {
             padding: var(--space-5);
             border-bottom: 1px solid var(--border-color);
@@ -653,14 +666,14 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .modal-title {
             font-family: var(--font-display);
             font-size: 1.125rem;
             font-weight: 700;
             color: var(--gray-900);
         }
-        
+
         .modal-close {
             width: 32px;
             height: 32px;
@@ -673,19 +686,19 @@
             justify-content: center;
             transition: all 0.2s;
         }
-        
+
         .modal-close:hover {
             background: var(--gray-200);
         }
-        
+
         .modal-body {
             padding: var(--space-5);
         }
-        
+
         .form-group {
             margin-bottom: var(--space-4);
         }
-        
+
         .form-label {
             display: block;
             font-weight: 600;
@@ -693,19 +706,19 @@
             color: var(--gray-700);
             margin-bottom: var(--space-2);
         }
-        
+
         .form-help {
             font-size: 0.8125rem;
             color: var(--gray-500);
             margin-top: var(--space-1);
         }
-        
+
         .icon-picker {
             display: grid;
             grid-template-columns: repeat(8, 1fr);
             gap: var(--space-2);
         }
-        
+
         .icon-option {
             width: 40px;
             height: 40px;
@@ -718,18 +731,18 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        
+
         .icon-option:hover {
             border-color: var(--primary);
             background: var(--bg-active);
         }
-        
+
         .icon-option.selected {
             border-color: var(--primary);
             background: var(--bg-active);
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
-        
+
         .modal-footer {
             padding: var(--space-5);
             border-top: 1px solid var(--border-color);
@@ -737,14 +750,14 @@
             gap: var(--space-3);
             justify-content: flex-end;
         }
-        
+
         /* Share Modal */
         .share-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: var(--space-3);
         }
-        
+
         .share-option {
             display: flex;
             flex-direction: column;
@@ -758,24 +771,24 @@
             transition: all 0.2s;
             text-align: center;
         }
-        
+
         .share-option:hover {
             border-color: var(--primary);
             background: var(--bg-active);
             transform: translateY(-2px);
             box-shadow: var(--shadow-sm);
         }
-        
+
         .share-icon {
             font-size: 2rem;
         }
-        
+
         .share-label {
             font-size: 0.875rem;
             font-weight: 600;
             color: var(--gray-700);
         }
-        
+
         /* Alert System */
         .alert {
             padding: var(--space-4);
@@ -785,37 +798,37 @@
             align-items: flex-start;
             gap: var(--space-3);
         }
-        
+
         .alert-info {
             background: rgba(37, 99, 235, 0.1);
             border: 1px solid rgba(37, 99, 235, 0.2);
             color: var(--primary-dark);
         }
-        
+
         .alert-success {
             background: rgba(16, 185, 129, 0.1);
             border: 1px solid rgba(16, 185, 129, 0.2);
             color: #047857;
         }
-        
+
         .alert-icon {
             font-size: 1.25rem;
         }
-        
+
         .alert-content {
             flex: 1;
         }
-        
+
         .alert-title {
             font-weight: 600;
             margin-bottom: var(--space-1);
         }
-        
+
         .alert-text {
             font-size: 0.875rem;
             opacity: 0.9;
         }
-        
+
         /* Ad Spaces Compactos */
         .ad-space {
             background: var(--gray-50);
@@ -830,7 +843,7 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .ad-label {
             font-size: 0.6875rem;
             text-transform: uppercase;
@@ -838,83 +851,102 @@
             color: var(--gray-400);
             margin-bottom: var(--space-2);
         }
-        
+
         .ad-text {
             font-size: 0.8125rem;
             color: var(--gray-500);
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
             .compact-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .summary-stats {
                 grid-template-columns: 1fr;
                 gap: var(--space-3);
             }
-            
+
             .stat {
                 text-align: left;
             }
-            
+
             .share-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .tabs {
                 gap: var(--space-1);
             }
-            
+
             .tab {
                 padding: var(--space-3) var(--space-4);
                 font-size: 0.875rem;
             }
-            
+
             .modal {
                 margin: var(--space-4);
             }
         }
-        
+
         @media (max-width: 480px) {
             .header-container {
                 padding: var(--space-3);
             }
-            
+
             .logo-text h1 {
                 font-size: 1.125rem;
             }
-            
+
             .container {
                 padding: var(--space-4) var(--space-3);
             }
-            
+
             .card {
                 padding: var(--space-4);
             }
-            
+
             .summary-amount {
                 font-size: 1.75rem;
             }
-            
+
             .icon-picker {
                 grid-template-columns: repeat(6, 1fr);
             }
         }
-        
+
         /* Utility Classes */
-        .mb-0 { margin-bottom: 0; }
-        .mb-2 { margin-bottom: var(--space-2); }
-        .mb-4 { margin-bottom: var(--space-4); }
-        .mb-6 { margin-bottom: var(--space-6); }
-        
-        .text-center { text-align: center; }
-        .text-muted { color: var(--gray-500); }
-        
-        .hidden { display: none; }
+        .mb-0 {
+            margin-bottom: 0;
+        }
+
+        .mb-2 {
+            margin-bottom: var(--space-2);
+        }
+
+        .mb-4 {
+            margin-bottom: var(--space-4);
+        }
+
+        .mb-6 {
+            margin-bottom: var(--space-6);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-muted {
+            color: var(--gray-500);
+        }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -926,7 +958,7 @@
                     <div class="tagline">Compara ciudades en tu moneda</div>
                 </div>
             </div>
-            
+
             <div class="currency-selector">
                 <button class="currency-btn" id="currencyBtn">
                     <span id="currentFlag">🇺🇸</span>
@@ -954,7 +986,8 @@
                 <div class="alert-icon">💡</div>
                 <div class="alert-content">
                     <div class="alert-title">¿Cómo funciona?</div>
-                    <div class="alert-text">Selecciona dos ciudades y tu presupuesto actual. Te mostraremos cuánto necesitarías en la otra ciudad.</div>
+                    <div class="alert-text">Selecciona dos ciudades y tu presupuesto actual. Te mostraremos cuánto
+                        necesitarías en la otra ciudad.</div>
                 </div>
             </div>
 
@@ -992,7 +1025,7 @@
                 <div class="summary-title">Necesitarías aproximadamente</div>
                 <div class="summary-amount" id="totalAmount">$3,450</div>
                 <div class="summary-subtitle" id="summaryCity">para vivir en Londres</div>
-                
+
                 <div class="summary-stats">
                     <div class="stat">
                         <div class="stat-value" id="differenceValue">+15%</div>
@@ -1020,7 +1053,8 @@
                 <div class="alert-icon">ℹ️</div>
                 <div class="alert-content">
                     <div class="alert-title">Personaliza tus categorías</div>
-                    <div class="alert-text">Puedes agregar, editar o eliminar categorías según tus necesidades. El total de porcentajes debe sumar 100%.</div>
+                    <div class="alert-text">Puedes agregar, editar o eliminar categorías según tus necesidades. El total
+                        de porcentajes debe sumar 100%.</div>
                 </div>
             </div>
 
@@ -1032,11 +1066,13 @@
                 <!-- Populated by JS -->
             </div>
 
-            <div id="percentageWarning" class="alert hidden" style="background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2); color: var(--danger);">
+            <div id="percentageWarning" class="alert hidden"
+                style="background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2); color: var(--danger);">
                 <div class="alert-icon">⚠️</div>
                 <div class="alert-content">
                     <div class="alert-title">Suma de porcentajes incorrecta</div>
-                    <div class="alert-text">El total actual es <strong id="currentTotal">0%</strong>. Debe ser exactamente 100%.</div>
+                    <div class="alert-text">El total actual es <strong id="currentTotal">0%</strong>. Debe ser
+                        exactamente 100%.</div>
                 </div>
             </div>
         </div>
@@ -1068,7 +1104,7 @@
             <div class="modal-body">
                 <form id="categoryForm">
                     <input type="hidden" id="categoryId">
-                    
+
                     <div class="form-group">
                         <label class="form-label">Icono</label>
                         <div class="icon-picker" id="iconPicker">
@@ -1145,7 +1181,7 @@
         // ======================
         // DATA & STATE
         // ======================
-        
+
         const currencies = {
             'USD': { symbol: '$', name: 'Dólar Estadounidense', flag: '🇺🇸', rate: 1 },
             'EUR': { symbol: '€', name: 'Euro', flag: '🇪🇺', rate: 0.92 },
@@ -1200,7 +1236,7 @@
         // ======================
         // INITIALIZATION
         // ======================
-        
+
         function init() {
             populateCurrencyDropdown();
             populateCitySelects();
@@ -1213,12 +1249,12 @@
         function populateCurrencyDropdown() {
             const dropdown = document.getElementById('currencyDropdown');
             dropdown.innerHTML = '';
-            
+
             Object.entries(currencies).forEach(([code, data]) => {
                 const option = document.createElement('div');
                 option.className = 'currency-option';
                 if (code === currentCurrency) option.classList.add('selected');
-                
+
                 option.innerHTML = `
                     <span>${data.flag}</span>
                     <div style="flex: 1;">
@@ -1226,7 +1262,7 @@
                         <div style="font-size: 0.75rem; color: var(--gray-500);">${data.name}</div>
                     </div>
                 `;
-                
+
                 option.addEventListener('click', () => selectCurrency(code));
                 dropdown.appendChild(option);
             });
@@ -1235,21 +1271,21 @@
         function populateCitySelects() {
             const select1 = document.getElementById('city1');
             const select2 = document.getElementById('city2');
-            
+
             Object.entries(cityData).forEach(([key, city]) => {
                 const option1 = new Option(`${city.name}, ${city.country}`, key);
                 const option2 = new Option(`${city.name}, ${city.country}`, key);
                 select1.appendChild(option1);
                 select2.appendChild(option2);
             });
-            
+
             select2.value = 'london';
         }
 
         function populateIconPicker() {
             const picker = document.getElementById('iconPicker');
             picker.innerHTML = '';
-            
+
             availableIcons.forEach(icon => {
                 const div = document.createElement('div');
                 div.className = 'icon-option';
@@ -1265,21 +1301,21 @@
                 e.stopPropagation();
                 document.getElementById('currencyDropdown').classList.toggle('active');
             });
-            
+
             document.addEventListener('click', () => {
                 document.getElementById('currencyDropdown').classList.remove('active');
             });
-            
+
             // Tabs
             document.querySelectorAll('.tab').forEach(tab => {
                 tab.addEventListener('click', () => switchTab(tab.dataset.tab));
             });
-            
+
             // Calculation triggers
             document.getElementById('city1').addEventListener('change', calculateCosts);
             document.getElementById('city2').addEventListener('change', calculateCosts);
             document.getElementById('budget').addEventListener('input', calculateCosts);
-            
+
             // Close modals on overlay click
             document.querySelectorAll('.modal-overlay').forEach(overlay => {
                 overlay.addEventListener('click', (e) => {
@@ -1293,20 +1329,20 @@
         // ======================
         // CURRENCY
         // ======================
-        
+
         function selectCurrency(code) {
             currentCurrency = code;
             const currency = currencies[code];
-            
+
             document.getElementById('currentFlag').textContent = currency.flag;
             document.getElementById('currentCurrency').textContent = code;
             document.getElementById('budgetWrapper').setAttribute('data-symbol', currency.symbol);
-            
+
             document.querySelectorAll('.currency-option').forEach(opt => {
                 opt.classList.remove('selected');
             });
             event.currentTarget.classList.add('selected');
-            
+
             document.getElementById('currencyDropdown').classList.remove('active');
             calculateCosts();
         }
@@ -1314,7 +1350,7 @@
         function formatCurrency(amount, code = currentCurrency) {
             const currency = currencies[code];
             const convertedAmount = amount * currency.rate;
-            
+
             if (code === 'JPY' || code === 'COP' || code === 'CLP' || code === 'ARS') {
                 return currency.symbol + ' ' + Math.round(convertedAmount).toLocaleString('es');
             }
@@ -1324,14 +1360,14 @@
         // ======================
         // TABS
         // ======================
-        
+
         function switchTab(tabName) {
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            
+
             document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
             document.getElementById(`tab-${tabName}`).classList.add('active');
-            
+
             if (tabName === 'results') {
                 renderAccordions();
             }
@@ -1340,28 +1376,28 @@
         // ======================
         // CALCULATIONS
         // ======================
-        
+
         function calculateCosts() {
             const city1Key = document.getElementById('city1').value;
             const city2Key = document.getElementById('city2').value;
             const budgetInput = parseFloat(document.getElementById('budget').value) || 3000;
-            
+
             const budgetUSD = budgetInput / currencies[currentCurrency].rate;
-            
+
             const city1 = cityData[city1Key];
             const city2 = cityData[city2Key];
-            
+
             let totalCity2 = 0;
             const categoryResults = [];
-            
+
             categories.forEach(category => {
                 const cat1Index = city1.categories[category.id] || 100;
                 const cat2Index = city2.categories[category.id] || 100;
-                
+
                 const city1Cost = budgetUSD * category.weight * (cat1Index / 100);
                 const city2Cost = budgetUSD * category.weight * (cat2Index / 100);
                 const difference = ((city2Cost - city1Cost) / city1Cost * 100);
-                
+
                 totalCity2 += city2Cost;
                 categoryResults.push({
                     ...category,
@@ -1370,20 +1406,20 @@
                     difference
                 });
             });
-            
+
             // Update summary
             document.getElementById('totalAmount').textContent = formatCurrency(totalCity2);
             document.getElementById('summaryCity').textContent = `para vivir en ${city2.name}`;
-            
+
             const totalDifference = ((totalCity2 - budgetUSD) / budgetUSD * 100);
             document.getElementById('differenceValue').textContent = `${totalDifference >= 0 ? '+' : ''}${totalDifference.toFixed(0)}%`;
-            
+
             const sortedByDiff = [...categoryResults].sort((a, b) => Math.abs(b.difference) - Math.abs(a.difference));
             const sortedByCost = [...categoryResults].sort((a, b) => b.city2Cost - a.city2Cost);
-            
+
             document.getElementById('mostExpensive').textContent = sortedByCost[0].name;
             document.getElementById('costIndex').textContent = city2.index;
-            
+
             // Store for accordion
             window.currentResults = categoryResults;
         }
@@ -1391,19 +1427,19 @@
         // ======================
         // ACCORDIONS
         // ======================
-        
+
         function renderAccordions() {
             const container = document.getElementById('accordionContainer');
             container.innerHTML = '';
-            
+
             const results = window.currentResults || [];
             const city1 = cityData[document.getElementById('city1').value];
             const city2 = cityData[document.getElementById('city2').value];
-            
+
             results.forEach((cat, index) => {
                 const diffClass = cat.difference > 5 ? 'positive' : cat.difference < -5 ? 'negative' : 'neutral';
                 const diffArrow = cat.difference > 5 ? '↑' : cat.difference < -5 ? '↓' : '→';
-                
+
                 const accordion = document.createElement('div');
                 accordion.className = 'accordion';
                 accordion.innerHTML = `
@@ -1437,7 +1473,7 @@
                         </div>
                     </div>
                 `;
-                
+
                 container.appendChild(accordion);
             });
         }
@@ -1445,7 +1481,7 @@
         function toggleAccordion(index) {
             const header = event.currentTarget;
             const content = document.getElementById(`accordion-${index}`);
-            
+
             header.classList.toggle('active');
             content.classList.toggle('active');
         }
@@ -1453,11 +1489,11 @@
         // ======================
         // CATEGORY MANAGEMENT
         // ======================
-        
+
         function renderCategoryManageList() {
             const container = document.getElementById('categoryManageList');
             container.innerHTML = '';
-            
+
             categories.forEach(cat => {
                 const div = document.createElement('div');
                 div.className = 'category-item-manage';
@@ -1476,7 +1512,7 @@
                 `;
                 container.appendChild(div);
             });
-            
+
             updatePercentageWarning();
         }
 
@@ -1484,7 +1520,7 @@
             const total = categories.reduce((sum, cat) => sum + cat.weight, 0);
             const totalPercent = (total * 100).toFixed(0);
             const warning = document.getElementById('percentageWarning');
-            
+
             if (Math.abs(total - 1) > 0.01) {
                 warning.classList.remove('hidden');
                 document.getElementById('currentTotal').textContent = totalPercent + '%';
@@ -1498,7 +1534,7 @@
             document.getElementById('categoryModalTitle').textContent = 'Agregar Categoría';
             document.getElementById('categoryForm').reset();
             document.getElementById('categoryModal').classList.add('active');
-            
+
             document.querySelectorAll('.icon-option').forEach(opt => {
                 opt.classList.remove('selected');
             });
@@ -1519,20 +1555,20 @@
         function editCategory(id) {
             const category = categories.find(c => c.id === id);
             if (!category) return;
-            
+
             editingCategoryId = id;
             document.getElementById('categoryModalTitle').textContent = 'Editar Categoría';
             document.getElementById('categoryId').value = id;
             document.getElementById('categoryName').value = category.name;
             document.getElementById('categoryWeight').value = (category.weight * 100).toFixed(0);
-            
+
             document.querySelectorAll('.icon-option').forEach(opt => {
                 opt.classList.remove('selected');
                 if (opt.textContent === category.icon) {
                     opt.classList.add('selected');
                 }
             });
-            
+
             document.getElementById('categoryModal').classList.add('active');
         }
 
@@ -1540,12 +1576,12 @@
             const name = document.getElementById('categoryName').value.trim();
             const weight = parseFloat(document.getElementById('categoryWeight').value) / 100;
             const selectedIcon = document.querySelector('.icon-option.selected');
-            
+
             if (!name || !weight || !selectedIcon) {
                 alert('Por favor completa todos los campos');
                 return;
             }
-            
+
             if (editingCategoryId) {
                 // Edit existing
                 const index = categories.findIndex(c => c.id === editingCategoryId);
@@ -1565,11 +1601,11 @@
                     weight
                 });
             }
-            
+
             renderCategoryManageList();
             closeCategoryModal();
             calculateCosts();
-            
+
             // Show success message
             showAlert('Categoría guardada exitosamente', 'success');
         }
@@ -1579,7 +1615,7 @@
                 alert('Debes tener al menos una categoría');
                 return;
             }
-            
+
             if (confirm('¿Estás seguro de eliminar esta categoría?')) {
                 categories = categories.filter(c => c.id !== id);
                 renderCategoryManageList();
@@ -1602,7 +1638,7 @@
                     <div class="alert-text">${message}</div>
                 </div>
             `;
-            
+
             document.body.appendChild(alertDiv);
             setTimeout(() => alertDiv.remove(), 3000);
         }
@@ -1610,7 +1646,7 @@
         // ======================
         // SHARE FUNCTIONALITY
         // ======================
-        
+
         function openShareModal() {
             document.getElementById('shareModal').classList.add('active');
         }
@@ -1624,15 +1660,15 @@
             const city2 = cityData[document.getElementById('city2').value].name;
             const total = document.getElementById('totalAmount').textContent;
             const diff = document.getElementById('differenceValue').textContent;
-            
+
             const text = `💰 Comparé el costo de vida: ${city1} vs ${city2}. Necesitaría ${total} al mes (${diff} de diferencia).`;
             const url = window.location.href;
             const encodedText = encodeURIComponent(text);
             const encodedUrl = encodeURIComponent(url);
-            
+
             let shareUrl = '';
-            
-            switch(platform) {
+
+            switch (platform) {
                 case 'whatsapp':
                     shareUrl = `https://wa.me/?text=${encodedText}%20${encodedUrl}`;
                     break;
@@ -1667,13 +1703,13 @@
                             url: url
                         }).then(() => {
                             closeShareModal();
-                        }).catch(() => {});
+                        }).catch(() => { });
                     } else {
                         alert('Tu navegador no soporta esta función');
                     }
                     return;
             }
-            
+
             if (shareUrl) {
                 window.open(shareUrl, '_blank', 'width=600,height=400');
                 closeShareModal();
@@ -1683,8 +1719,9 @@
         // ======================
         // INIT
         // ======================
-        
+
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
+
 </html>
